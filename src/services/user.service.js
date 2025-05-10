@@ -5,6 +5,7 @@ import {
   getUserPreferencesByUserId,
   setPreference,
 } from "../repositories/user.repository.js";
+import { getUserReviews } from "../repositories/user.repository.js";
 
 export const userSignUp = async (data) => {
   const joinUserId = await addUser({
@@ -29,4 +30,9 @@ export const userSignUp = async (data) => {
   const preferences = await getUserPreferencesByUserId(joinUserId);
 
   return responseFromUser({ user, preferences });
+};
+
+export const fetchUserReviews = async (userId) => {
+  const reviews = await getUserReviews(userId);
+  return reviews;
 };

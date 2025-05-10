@@ -2,10 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 
 import { handleUserSignUp } from "./controllers/user.controllers.js";
+import { handleGetUserReviews } from "./controllers/user.controllers.js";
 
 dotenv.config();
 
 const app = express();
+app.use(express.json());
 const port = process.env.PORT;
 
 //app.use(cors()); // cors 방식 허용
@@ -31,3 +33,5 @@ app.post("/api/v1/users/signup", handleUserSignUp);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`); //테스트
 });
+
+app.get("/api/v1/users/:userId/reviews", handleGetUserReviews);
