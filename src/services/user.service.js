@@ -1,4 +1,6 @@
 import { responseFromUser } from "../dtos/user.dto.js";
+import { DuplicateUserEmailError } from "../errors.js";
+
 import {
   addUser,
   getUser,
