@@ -4,6 +4,7 @@ import { userSignUp } from "../services/user.service.js";
 import { fetchUserReviews } from "../services/user.service.js";
 
 export const handleUserSignUp = async (req, res, next) => {
+  // #region Swagger: 지역 추가 API
   /*
     #swagger.summary = '회원 가입 API';
     #swagger.requestBody = {
@@ -71,6 +72,7 @@ export const handleUserSignUp = async (req, res, next) => {
       }
     };
   */
+  // #endregion
   console.log("회원가입을 요청했습니다!");
   console.log("body:", req.body); // 값이 잘 들어오나 확인하기 위한 테스트용
 
@@ -81,6 +83,7 @@ export const handleUserSignUp = async (req, res, next) => {
 
 export const handleGetUserReviews = async (req, res) => {
   const { userId } = req.params;
+  // #region Swagger: 지역 추가 API
   /*
     #swagger.summary = '상점 리뷰 목록 조회 API';
     #swagger.responses[200] = {
@@ -116,6 +119,7 @@ export const handleGetUserReviews = async (req, res) => {
       }
     };
   */
+  // #endregion
 
   try {
     const reviews = await fetchUserReviews(userId);

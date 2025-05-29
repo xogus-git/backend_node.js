@@ -75,3 +75,4 @@ model Review {
 
   @@map("review")
 }
+
